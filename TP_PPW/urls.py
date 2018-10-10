@@ -20,6 +20,6 @@ import TP1.urls as TP1
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^tp-1/', include(TP1, namespace='TP1')),
+    url(r'^tp-1/', include(('TP1.urls', 'TP1'), namespace='TP1')),
     url(r'^$', RedirectView.as_view(url='/tp-1/')),
 ]
