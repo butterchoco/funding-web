@@ -4,5 +4,5 @@ from django.db import models
 
 class program_registration(models.Model):
     nama = models.CharField(max_length=255)
-    tanggal_lahir = models.DateField()
+    email = models.EmailField(max_length=100)
     jumlah_uang = models.IntegerField()

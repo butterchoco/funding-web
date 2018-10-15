@@ -79,9 +79,9 @@ class TP1_testcase(TestCase):
 
     def test_TP1_program_registration_post_success_and_render_the_result(self):
         test = 'Anonymous'
-        response_post = Client().post('/registration/', {'nama': test, 'email': test + '@gmail.com', 'jumlah_uang': '12000'})
+        response_post = Client().post('/program/', {'nama': test, 'email': test + '@gmail.com', 'jumlah_uang': '12000'})
         self.assertEqual(response_post.status_code, 302)
 
     def test_TP1_program_registration_post_error_and_render_the_result(self):
-            response_post = Client().post('/registration/', {'nama': '', 'email': 'retafvyaf.com', 'jumlah_uang': '#$%^&*()'})
-            self.assertEqual(response_post.status_code, 302)
+            test = 'anonymous' * 400
+            self.assertEqual(program_registration.objects.filter(nama=test).count(), 0)

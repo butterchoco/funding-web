@@ -1,9 +1,7 @@
 from django import forms
-from django.forms import ModelForm
 
 
-class program_registration_form(ModelForm):
-    tanggal_lahir = forms.DateField(widget=forms.DateTimeInput(attrs={'type': 'date', 'class': 'form-control'}), input_formats=['%d-%m-%Y'])
-    
-    class Meta:
-        field = ['nama', 'tanggal_lahir', 'jumlah_uang']
+class program_registration_form(forms.Form):
+    nama = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField()
+    jumlah_uang = forms.IntegerField()
