@@ -18,4 +18,4 @@ def programIndex(request):
             return HttpResponseRedirect('/program/')
     else:
         form = program_registration_form()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'program_index.html', {'form': form})
