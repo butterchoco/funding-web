@@ -19,4 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^program/', include(('ProgramApp.urls', 'ProgramApp'), namespace='donasi_kuy')),
+    url(r'^news/', include(('BeritaApp.urls', 'BeritaApp'), namespace='news')),
+    url(r'^registration/', include(('RegistrationApp.urls', 'RegistrationApp'), namespace='registration')),
 ]
