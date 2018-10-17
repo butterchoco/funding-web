@@ -23,11 +23,6 @@ class RegistrationApp_testcase(TestCase):
         counting_all_available_user_registration = user_registration.objects.all().count()
         self.assertEqual(counting_all_available_user_registration, 1)
 
-    def test_model_can_create_new_user_registration(self):
-        user_registration.objects.create(judul='Gempa', konten='lorem ipsum dolorsit wat de trakoiyarnwfbafvafvaywfvu')
-        counting_all_available_user_registration = user_registration.objects.all().count()
-        self.assertEqual(counting_all_available_user_registration, 1)
-
     def test_form_user_registration_input_has_placeholder_and_css_classes(self):
         form = user_registration_form()
         self.assertIn('class="form-control"', form.as_p())

@@ -26,12 +26,8 @@ class ProgramApp_testcase(TestCase):
 
     def test_model_can_create_new_program_update(self):
         program_update.objects.create(judul='Gempa', konten='lorem ipsum dolorsit wat de trakoiyarnwfbafvafvaywfvu', image='https://www.youtube.com/watch?v=1G4isv_Fylg')
-        counting_all_available_user_registration = program_update.objects.all().count()
-        self.assertEqual(counting_all_available_user_registration, 1)
-
-    def test_form_program_registration_input_has_placeholder_and_css_classes(self):
-        form = program_registration_form()
-        self.assertIn('class="form-control"', form.as_p())
+        counting_all_available_program_registration = program_update.objects.all().count()
+        self.assertEqual(counting_all_available_program_registration, 1)
 
     def test_program_form_validation_for_blank_items(self):
         form = program_registration_form(data={'nama': '', 'email': '', 'jumlah_uang': ''})
