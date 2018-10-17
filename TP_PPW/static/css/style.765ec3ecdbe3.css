@@ -1,0 +1,17 @@
+h2 {
+    color: #4195A0;
+    font-family: Helvetica;
+    font-weight: bold;
+    padding: 2rem;
+}
+
+.program {
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-title {
+    color: #ffffff;
+}
