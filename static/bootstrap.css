@@ -698,14 +698,14 @@ pre code {
   overflow-x: hidden;
 }
 
-.yusuf-bg-atas {
+/* .yusuf-bg-atas {
   background-image: url("bg-section-atas-v2.jpg");
   background-position: 68% 50%;
   background-repeat: no-repeat;
   background-size: cover;
   overflow-y: auto;
   overflow-x: hidden;
-}
+} */
 
 .yusuf-section-konten {
   width: 100%;
