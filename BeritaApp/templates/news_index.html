@@ -1,9 +1,95 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
-    <title></title>
+	<meta charset="UTF-8">
+	<title>Berita | Donasikan uangmu !</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+		body {
+			font-family: "Open Sans";
+		}
+		h1 {
+			font-family: "Open Sans";
+			font-size: 3vmax;
+			color: #108A94;
+			font-weight: 700;
+			margin-top : 10vh;
+			margin-bottom: 5vh;
+		}
+		h2 {
+			font-weight: 600;
+			font-size: 2.5vmax;
+			color: #D6FBFA;
+			margin-top: 3vh;
+		}
+		a {
+			font-family: "Arial";
+			font-weight: lighter;
+			font-size: 1.5vmax;
+			color: black;
+		}
+		p {
+			font-size: 1.5vmax;
+		}
+		.news-container {
+			margin-top: 10vh;
+			margin-bottom: 5vh;
+			max-width: 60vw;
+		}
+	</style>
 </head>
 <body>
-    <h1>test2</h1>
+	<div class="container">
+		<h1 class="text-center">Berita</h1>
+	</div>
+	
+	<!--1 news content-->
+	<div class="container news-container align-middle shadow p-0 mb-5 bg-white rounded" style>
+		<div class="card border-light mb-3">
+			<div class="card-header" style="background-color:#108A94">
+				<h2 class="text-center">Gempa Tsunami Palu<h2>
+			</div>
+			<!--need img here-->
+			<img class="card-img-top" src="{% static 'berita/img/no-img.png' %}" alt="need img here">
+			
+			<div class="card-body" style="margin-left:2.5vw; margin-right:2.5vw;">
+				<p>lorem ipsum tralala potamus NHASHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa AAAAAAAAAAAAAAAAAAAAAA</p>
+				<div align="right">
+					<!--need target address here-->
+					<a href="#">Read More...</a>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--1 news content-->
+	<div class="container news-container align-middle shadow p-0 mb-5 bg-white rounded" style>
+		<div class="card border-light mb-3">
+			<div class="card-header" style="background-color:#108A94">
+				<h2 class="text-center">Lapar<h2>
+			</div>
+			<!--need img here-->
+			<img class="card-img-top" src="{% static 'berita/img/no-img.png' %}" alt="need img here">
+			
+			<div class="card-body" style="margin-left:2.5vw; margin-right:2.5vw;">
+				<p>lorem ipsum tralala potamus NHASHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa AAAAAAAAAAAAAAAAAAAAAA</p>
+				<div align="right">
+					<a href="#">Read More...</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div>
+		<!--need footer here-->
+	</div>
 </body>
 </html>
