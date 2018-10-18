@@ -6,6 +6,7 @@ class program_registration(models.Model):
     nama = models.CharField(max_length=255)
     email = models.EmailField(max_length=100)
     jumlah_uang = models.IntegerField()
+    tampilkan = models.BooleanField()
 
 
 class program_update(models.Model):
