@@ -20,7 +20,7 @@ class ProgramApp_testcase(TestCase):
         self.assertEqual(found.func, programIndex)
 
     def test_model_can_create_new_program_registration(self):
-        program_registration.objects.create(nama='Anonymous', email='anonymous@gmail.com', jumlah_uang='12000')
+        program_registration.objects.create(nama='Anonymous', email='anonymous@gmail.com', jumlah_uang='12000', tampilkan=True)
         counting_all_available_program_registration = program_registration.objects.all().count()
         self.assertEqual(counting_all_available_program_registration, 1)
 
@@ -38,7 +38,7 @@ class ProgramApp_testcase(TestCase):
 
     def test_program_registration_post_success(self):
         test = 'Anonymous'
-        response_post = Client().post('/program/', {'nama': test, 'email': test + '@gmail.com', 'jumlah_uang': '12000'})
+        response_post = Client().post('/program/', {'nama': test, 'email': test + '@gmail.com', 'jumlah_uang': '12000', 'tampilkan': True})
         self.assertEqual(response_post.status_code, 302)
 
     def test_program_registration_post(self):

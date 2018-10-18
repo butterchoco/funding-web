@@ -10,7 +10,7 @@ from .forms import user_registration_form
 
 class RegistrationApp_testcase(TestCase):
     
-    def test_TP1_registration_url_is_exist(self):
+    def test_Registration_registration_url_is_exist(self):
         response = Client().get('/registration/')
         self.assertEqual(response.status_code, 200)
 
