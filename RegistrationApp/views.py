@@ -20,7 +20,7 @@ def registrationIndex(request):
             response['password'] = request.POST['password']
             form = user_registration(nama=response['nama'], tanggal_lahir=response['tanggal_lahir'], email=response['email'], password=response['password'])
             form.save()
-            return HttpResponseRedirect('/news/')
+            return HttpResponseRedirect('/program/')
     else:
         user_form = user_registration_form()
     return render(request, 'registration_index.html', {'user_form': user_form})

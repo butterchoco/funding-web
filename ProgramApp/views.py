@@ -21,8 +21,8 @@ def programIndex(request):
             response['nama'] = request.POST['nama']
             response['email'] = request.POST['email']
             response['jumlah_uang'] = request.POST['jumlah_uang']
-            response['tampilkan'] = request.POST['tampilkan']
-            forms = program_registration(nama=response['nama'], email=response['email'], jumlah_uang=response['jumlah_uang'])
+            response['tampilkan'] = form.cleaned_data['tampilkan']
+            forms = program_registration(nama=response['nama'], email=response['email'], jumlah_uang=response['jumlah_uang'], tampilkan=response['tampilkan'])
             forms.save()
             return HttpResponseRedirect('/program/')
     else:
