@@ -21,6 +21,8 @@ UnitTest:
   when: on_success
   script:
     - coverage run --include='ProgramApp/*' manage.py test
+    - coverage run --include='BeritaApp/*' manage.py test
+    - coverage run --include='RegistrationApp/*' manage.py test
     - coverage report -m
 
 Deployment:

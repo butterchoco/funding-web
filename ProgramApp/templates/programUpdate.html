@@ -6,6 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/icon" href="{% static 'image/favicon.ico' %}">
     <title>{{ program.judul }}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -14,13 +15,19 @@
     {% include 'navbar.html' %}
 
     <div class="container-fluid">
-        <div class="row" style="padding-top: 2rem">
-            <div class="col-xs-12 col-md-6">
-                <img src="{{ program.image }}" class="program-img">
+        <div class="row" style="background-color: #f7f7f7">
+            <div class="col-xs-12 col-md-4" style="padding-left: 0; padding-right: 0;">
+                    <img src="{{ program.image }}" class="img-fluid" style="opacity: 0.5" alt="Responsive image">
             </div>
-            <div class="col-xs-12 col-md-6" style="align-self: center; padding-top: 2rem;">
-                <h2>{{ program.judul }}</h2>
-                <p class="text-justify">{{ program.konten }}</p>
+            <div class="col-xs-12 col-md-8 program-konten">
+                <div class="row" style="display: flex; flex-direction: column;">
+                    <h2>{{ program.judul }}</h2>
+                    <p class="text-justify float-left" style="color: #000000;">{{ program.konten }}</p>
+                </div>
+                <hr>
+                <div class="row">
+                    <h3 style="font-weight: bold; color: #000000; font-size: 2rem;">Rp. {{ totalDonasi }}</h3>
+                </div>
             </div>
         </div>
 
@@ -35,18 +42,22 @@
                     </thead>
                     <tbody>
                         {% for data in program_reg %}
-                            {% if data.tampilkan %}
                             <tr class="success">
-                                <td> {{ data.nama }} </td>
+                                {% if data.tampilkan %}
+                                    <td> {{ data.nama }} </td>
+                                {% else %}
+                                    <td></td>
+                                {% endif %}
                                 <td> {{ data.email }} </td>
                                 <td> {{ data.jumlah_uang }} </td>
                             </tr>
-                            {% endif %}
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
+    {% include 'footer.html' %}
 </body>
 </html>

@@ -3,6 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+    <link rel="icon" type="image/icon" href="{% static 'image/favicon.ico' %}">
 	<title>Sinar Perak | Berita</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
 	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
@@ -33,10 +34,23 @@
 	                  </div>
 	              </div>
 	            {% endfor %}
+
+            {% else %}
+                <div class="container-fluid">
+                    <div class="row center">
+                        <h3 style="color: #000000;">Tidak ada berita untuk saat ini.</h3>
+                    </div>
+                </div>
             {% endif %}
           </div>
         </div>
       </section>
     </div>
+
+    <div style="position: absolute; bottom: 0; width: 100%;">
+        
+    {% include 'footer.html' %}
+    </div>
+    
 </body>
 </html>

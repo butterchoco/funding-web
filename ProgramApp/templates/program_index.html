@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="icon" type="image/icon" href="{% static 'image/favicon.ico' %}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <title>Sinar Perak | Program</title>
@@ -46,16 +47,25 @@
         </div>
       </section>
 
-      <section class="program-form-section vertical-center">
+      <section class="program-form-section" style="padding-top: 15rem;">
         <div class="row" style="width: 100%;">
-          <div class="col-xs-12 col-md-4">          
+          <div class="col-xs-12 col-md">   
           </div>
-          <div class="col-xs-12 col-md-4">
+          <div class="col-xs-12 col-md-3 vertical-center" style="padding-bottom: 5rem;">   
+            <h1 class="font-weight-bold"> Mari Berdonasi !</h1>
+          </div>
+          <div class="col-xs-12 col-md-5">
             <form id="program-forms" method="POST">
               {% csrf_token %}
               {{ form }}
-              <button type="submit" class="btn btn-info float-right btn-hov" style="margin-top: 1rem;">Donasikan</button>
+              <div class="yusuf-container-konten text-center">
+                <button type="submit" class="btn btn-primary yusuf-isi-button border-0">
+                  <span class="yusuf-bold">Donasikan</span>
+                </button>
+              </div>
             </form>
+          </div>
+          <div class="col-xs-12 col-md">   
           </div>
         </div>
       </section>
@@ -65,5 +75,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    {% include 'footer.html' %}
   </body>
 </html>

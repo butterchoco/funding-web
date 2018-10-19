@@ -22,7 +22,9 @@ def programIndex(request):
             response['email'] = request.POST['email']
             response['jumlah_uang'] = request.POST['jumlah_uang']
             response['tampilkan'] = form.cleaned_data['tampilkan']
-            forms = program_registration(nama=response['nama'], email=response['email'], jumlah_uang=response['jumlah_uang'], tampilkan=response['tampilkan'])
+            response['program'] = form.cleaned_data['program']
+            print(response['program'])
+            forms = program_registration(program=response['program'], nama=response['nama'], email=response['email'], jumlah_uang=response['jumlah_uang'], tampilkan=response['tampilkan'])
             forms.save()
             return HttpResponseRedirect('/program/')
     else:
@@ -33,4 +35,7 @@ def programIndex(request):
 def programUpdate(request, id=None):
     program = get_object_or_404(program_update, id=id)
     program_reg = program_registration.objects.all()
-    return render(request, 'programUpdate.html', {'program': program, 'program_reg': program_reg})
+    totalDonasi = 0
+    for temp in program_reg:
+        totalDonasi += temp.jumlah_uang
+    return render(request, 'programUpdate.html', {'program': program, 'program_reg': program_reg, 'totalDonasi': totalDonasi})

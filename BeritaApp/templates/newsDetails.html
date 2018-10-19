@@ -6,6 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/icon" href="{% static 'image/favicon.ico' %}">
     <title>{{ berita.judul }}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -26,5 +27,7 @@
             </div>
         </div>
     </div>
+
+    {% include 'footer.html' %}
 </body>
 </html>
