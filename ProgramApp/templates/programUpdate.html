@@ -19,13 +19,13 @@
             <div class="col-xs-12 col-md-4" style="padding-left: 0; padding-right: 0;">
                     <img src="{{ program.image }}" class="img-fluid" style="opacity: 0.5" alt="Responsive image">
             </div>
-            <div class="col-xs-12 col-md-8 program-konten">
-                <div class="row" style="display: flex; flex-direction: column;">
+            <div class="col-xs-12 col-md-8" style="align-self: center;">
+                <div class="row program-konten" style="display: flex; flex-direction: column;">
                     <h2>{{ program.judul }}</h2>
                     <p class="text-justify float-left" style="color: #000000;">{{ program.konten }}</p>
                 </div>
-                <hr>
-                <div class="row">
+                <hr style="margin-top: 0; margin-bottom: 0;">
+                <div class="row program-konten">
                     <h3 style="font-weight: bold; color: #000000; font-size: 2rem;">Rp. {{ totalDonasi }}</h3>
                 </div>
             </div>

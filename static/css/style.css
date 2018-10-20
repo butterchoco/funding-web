@@ -19,7 +19,6 @@ h5 {
 }
 
 .program-konten {
-    align-self: center;
     padding-left: 2rem;
     padding-right: 5rem;
 }
@@ -105,7 +104,6 @@ h5 {
     }
 
     .program-konten {
-        align-self: center;
         padding-top: 2rem;
         padding-left: 1rem;
     }
