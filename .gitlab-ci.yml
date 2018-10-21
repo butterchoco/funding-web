@@ -20,9 +20,7 @@ UnitTest:
     - python manage.py runserver 8000 &
   when: on_success
   script:
-    - coverage run --include='ProgramApp/*' manage.py test
-    - coverage run --include='BeritaApp/*' manage.py test
-    - coverage run --include='RegistrationApp/*' manage.py test
+    - coverage run --source=ProgramApp,BeritaApp,RegistrationApp manage.py test
     - coverage report -m
 
 Deployment:

@@ -34,7 +34,7 @@ def programIndex(request):
 
 def programUpdate(request, id=None):
     program = get_object_or_404(program_update, id=id)
-    program_reg = program_registration.objects.all()
+    program_reg = program_update.objects.get(id=id).program_registration_set.all()
     totalDonasi = 0
     for temp in program_reg:
         totalDonasi += temp.jumlah_uang
