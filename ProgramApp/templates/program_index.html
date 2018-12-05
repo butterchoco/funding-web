@@ -57,26 +57,31 @@
         </div>
       </section>
 
-      <section class="program-form-section" id="program-forms" style="display:flex; flex-direction; align-items: center;">
-        <div class="row" style="width: 100%;">
-          <div class="col-xs-12 col-md-4">
+      <!-- jika user belum login, jangan tampilkan form donasi -->
+      {% if user.is_authenticated %}
+        <section class="program-form-section" id="program-forms" style="display:flex; flex-direction; align-items: center;">
+          <div class="row" style="width: 100%;">
+            <div class="col-xs-12 col-md-4">
+            </div>
+            <div class="col-xs-12 col-md-4">
+              <h2 class="font-weight-bold text-center"> Mari Berdonasi !</h2>
+              <form method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <div class="yusuf-container-konten text-center">
+                  <button type="submit" class="btn btn-primary yusuf-isi-button border-0">
+                    <span class="yusuf-bold">Donasikan</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="col-xs-12 col-md-4">
+            </div>
           </div>
-          <div class="col-xs-12 col-md-4">
-            <h2 class="font-weight-bold text-center"> Mari Berdonasi !</h2>
-            <form method="POST">
-              {% csrf_token %}
-              {{ form }}
-              <div class="yusuf-container-konten text-center">
-                <button type="submit" class="btn btn-primary yusuf-isi-button border-0">
-                  <span class="yusuf-bold">Donasikan</span>
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="col-xs-12 col-md-4">
-          </div>
-        </div>
-      </section>
+        </section>
+      {% else %}
+        <div class="yusuf-padding-akhir"></div>
+      {% endif %}
     </div>
 
 
