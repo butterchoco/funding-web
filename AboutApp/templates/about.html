@@ -50,26 +50,27 @@
 			<h2 class="text-center">Testimoni</h2>
 			
 			<section> <!-- here lies all the testimonials -->
+			{% if allTesti %}
+			{% for testi in allTesti %}
+			<div class="testimoni-content">
+				<h4 class="text-center" style="color:black">{{ testi.name }}</h4>
+				<div class="flex-content text-center">
+					<div>
+						<p>{{ testi.komenModel }}</p>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			{% else %}
 			<div class="testimoni-content">
 				<h4 class="text-center" style="color:black">Nama</h4>
 				<div class="flex-content text-center">
 					<div>
-						<p>"Sinar Perak didirikan pada tahun 2018, oleh M. Yusuf Harahap, Ahmad Supriyanto, dan Edward Partogi ketika mereka sedang berkuliah di Fakultas Ilmu Komputer, Universitas Indonesia.
-						Tersadar dan tergerak oleh banyaknya sesama yang tidak berdaya dan membutuhkan bantuan, ketiga kawan ini berinovasi untuk menggunakan kemampuan mereka untuk bisa bermanfaat bagi sesamanya. Inovasi tersebut akhirnya melahirkan Sinar Perak.
-						Sinar Perak merupakan yayasan penggalang dana tanpa pungutan biaya yang terbesar di Indonesia. Situs ini menjadi tempat yang menghubungkan banyak orang dalam membantu memberikan harapan baru bagi sesama yang lebih membutuhkan".</p>
+						<p>TEST</p>
 					</div>
 				</div>
 			</div>
-			<div class="testimoni-content">
-				<h4 class="text-center" style="color:black">Nama</h4>
-				<div class="flex-content text-center">
-					<div>
-						<p>"Sinar Perak didirikan pada tahun 2018, oleh M. Yusuf Harahap, Ahmad Supriyanto, dan Edward Partogi ketika mereka sedang berkuliah di Fakultas Ilmu Komputer, Universitas Indonesia.
-						Tersadar dan tergerak oleh banyaknya sesama yang tidak berdaya dan membutuhkan bantuan, ketiga kawan ini berinovasi untuk menggunakan kemampuan mereka untuk bisa bermanfaat bagi sesamanya. Inovasi tersebut akhirnya melahirkan Sinar Perak.
-						Sinar Perak merupakan yayasan penggalang dana tanpa pungutan biaya yang terbesar di Indonesia. Situs ini menjadi tempat yang menghubungkan banyak orang dalam membantu memberikan harapan baru bagi sesama yang lebih membutuhkan".</p>
-					</div>
-				</div>
-			</div>
+			{% endif %}
 			</section>
 			
 			<section>
