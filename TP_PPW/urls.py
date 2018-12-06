@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^program/', include(('ProgramApp.urls', 'ProgramApp'), namespace='donasi_kuy')),
     url(r'^news/', include(('BeritaApp.urls', 'BeritaApp'), namespace='news')),
     url(r'^registration/', include(('RegistrationApp.urls', 'RegistrationApp'), namespace='registration')),
+    url(r'^about/', include(('AboutApp.urls', 'AboutApp'), namespace='about')),
 ]

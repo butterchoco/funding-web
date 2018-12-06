@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="UTF-8">
+    <link rel="icon" type="image/icon" href="{% static 'image/favicon.ico' %}">
+	<title>Sinar Perak | Tentang Kami</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<script src="{% static 'js/about_page.js' %}"></script>
+</head>
+<body>
+    {% include 'navbar.html' %}
+	
+	<section id="title">
+		<div class="container-fluid yusuf-max-width">
+			<h2 align="center" style="padding-top:2rem;" align="center">SINAR PERAK</h2>
+			<h6 align="center" style="color:#BFC6D1">Salurkan harapan, ciptakan senyuman</h6>
+		</div>
+		<div class="content">
+			<div class="yusuf-container-konten text-center">
+				<a class="btn btn-primary yusuf-isi-button border-0" href="/program/">
+					<span class="yusuf-bold">Mari berdonasi!</span>
+				</a>
+            </div>
+		</div>
+	</section>
+	
+	<section class="about-history" id='history'>
+	<div class="history-content">
+		<h4 style="margin-bottom:2rem; text-align:center; color: #4195A0;">Sejarah Sinar Perak</h4>
+		<div class="flex-content">
+			<img class="rounded-img" src="https://www.youcaring.com/wp-content/themes/YC_homepage/assets/images/yc-founders.jpg" alt="Founders" />
+			<div>
+				<p>Sinar Perak didirikan pada tahun 2018, oleh M. Yusuf Harahap, Ahmad Supriyanto, dan Edward Partogi ketika mereka sedang berkuliah di Fakultas Ilmu Komputer, Universitas Indonesia.</p>
+				<p>Tersadar dan tergerak oleh banyaknya sesama yang tidak berdaya dan membutuhkan bantuan, ketiga kawan ini berinovasi untuk menggunakan kemampuan mereka untuk bisa bermanfaat bagi sesamanya. Inovasi tersebut akhirnya melahirkan Sinar Perak.</p>
+				<p>Sinar Perak merupakan yayasan penggalang dana tanpa pungutan biaya yang terbesar di Indonesia. Situs ini menjadi tempat yang menghubungkan banyak orang dalam membantu memberikan harapan baru bagi sesama yang lebih membutuhkan.</p>
+			</div>
+		</div>
+	</div>
+	</section>
+	
+	<section id="testimoni">
+	<div>
+		<div class="yusuf-max-width">
+			<h2 class="text-center">Testimoni</h2>
+			
+			<section> <!-- here lies all the testimonials -->
+			<div class="testimoni-content">
+				<h4 class="text-center" style="color:black">Nama</h4>
+				<div class="flex-content text-center">
+					<div>
+						<p>"Sinar Perak didirikan pada tahun 2018, oleh M. Yusuf Harahap, Ahmad Supriyanto, dan Edward Partogi ketika mereka sedang berkuliah di Fakultas Ilmu Komputer, Universitas Indonesia.
+						Tersadar dan tergerak oleh banyaknya sesama yang tidak berdaya dan membutuhkan bantuan, ketiga kawan ini berinovasi untuk menggunakan kemampuan mereka untuk bisa bermanfaat bagi sesamanya. Inovasi tersebut akhirnya melahirkan Sinar Perak.
+						Sinar Perak merupakan yayasan penggalang dana tanpa pungutan biaya yang terbesar di Indonesia. Situs ini menjadi tempat yang menghubungkan banyak orang dalam membantu memberikan harapan baru bagi sesama yang lebih membutuhkan".</p>
+					</div>
+				</div>
+			</div>
+			<div class="testimoni-content">
+				<h4 class="text-center" style="color:black">Nama</h4>
+				<div class="flex-content text-center">
+					<div>
+						<p>"Sinar Perak didirikan pada tahun 2018, oleh M. Yusuf Harahap, Ahmad Supriyanto, dan Edward Partogi ketika mereka sedang berkuliah di Fakultas Ilmu Komputer, Universitas Indonesia.
+						Tersadar dan tergerak oleh banyaknya sesama yang tidak berdaya dan membutuhkan bantuan, ketiga kawan ini berinovasi untuk menggunakan kemampuan mereka untuk bisa bermanfaat bagi sesamanya. Inovasi tersebut akhirnya melahirkan Sinar Perak.
+						Sinar Perak merupakan yayasan penggalang dana tanpa pungutan biaya yang terbesar di Indonesia. Situs ini menjadi tempat yang menghubungkan banyak orang dalam membantu memberikan harapan baru bagi sesama yang lebih membutuhkan".</p>
+					</div>
+				</div>
+			</div>
+			</section>
+			
+			<section>
+			<div class="yusuf-container-konten text-center">
+				{% if user.is_authenticated %}
+				<button type="button" class="btn btn-primary yusuf-isi-button border-0" id="ask-form">
+				{% else %}
+				<button type="button" class="btn btn-primary yusuf-isi-button border-0" id="ask-form-unlogged">
+				{% endif %}
+				<span class="yusuf-bold">Berikan testimoni?</span>
+				</button>
+			</div>
+			
+			<div id="showFormFlag" style="margin-bottom:2rem">
+			<div style="color:black; margin-bottom:2rem" align="center" id="not-loggedIn-alert">
+				<p style="margin-bottom:0"><a href="/registration/">Masuk </a>untuk memberikan testimoni</p>
+			</div>
+			
+			<div class="yusuf-container-form yusuf-container-konten" style="max-width: 780px;" id="form-testimoni">
+				<form method="POST">
+					{% csrf_token %}
+					{{ form }}
+					<!-- <label for="id_nama">Komentar:</label> -->
+						<!-- <textarea type="text" name="nama" maxlength="1000" class="form-control" rows="5" required placeholder="Sampaikan pengalaman anda..." id="id_testi"></textarea> -->
+						
+					<div class="yusuf-container-konten text-center">
+						<button type="submit" class="btn btn-primary yusuf-isi-button border-0">
+						<span class="yusuf-bold">Kirim</span>
+						</button>
+					</div>
+				</form>
+			</div>
+			</div>
+			</section>
+		</div>
+	</div>
+	</section>
+	
+    {% include 'footer.html' %}
+    
+</body>
+</html>

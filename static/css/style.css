@@ -23,6 +23,55 @@ h5 {
     padding-right: 5rem;
 }
 
+.about-history {
+	margin-top:2rem;
+	margin-bottom: 2rem;
+	color: black;
+	background-color: #f7f7f7;
+	font-size: 14px;
+}
+
+.rounded-img {
+	margin-right: 40px;
+	height: 250px;
+	width: 250px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.history-content {
+	max-width: 980px;
+	margin: 0 auto 2rem;
+	padding: 40px;
+	box-sizing: border-box;
+}
+
+.testimoni-content {
+	max-width: 780px;
+	margin: 0 auto;
+	padding: 20px 40px;
+	box-sizing: border-box;
+}
+
+.flex-content {
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
+	align-items: center;
+	margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+	.flex-content {
+		display: inline-block;
+		width: auto;
+		text-align: center;
+	}
+	.history-img {
+		margin: 0 auto 2rem;
+	}
+}
+
 .program-img {
     width: 100%;
     height: auto;

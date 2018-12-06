@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'ProgramApp',
     'BeritaApp',
     'RegistrationApp',
+    'AboutApp',
 ]
 
 MIDDLEWARE = [
