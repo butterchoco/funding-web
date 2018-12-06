@@ -9,6 +9,14 @@ response = {}
 
 
 def programIndex(request):
+
+    # membuat session setelah user login
+    if request.user.is_authenticated:
+        strNama = request.user.first_name + " " + request.user.last_name
+        strNama = strNama.strip()
+        request.session['name'] = strNama
+
+
     program = program_update.objects.all()
     if (request.method == "POST"):
         form = program_registration_form(request.POST)
