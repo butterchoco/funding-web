@@ -17,10 +17,14 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic.base import RedirectView
 
+from LogoutApp import views as logout_views
+
 urlpatterns = [
     url(r'^$', RedirectView.as_view(url='/news/')),
     url(r'^admin/', admin.site.urls),
     url(r'^program/', include(('ProgramApp.urls', 'ProgramApp'), namespace='donasi_kuy')),
     url(r'^news/', include(('BeritaApp.urls', 'BeritaApp'), namespace='news')),
     url(r'^registration/', include(('RegistrationApp.urls', 'RegistrationApp'), namespace='registration')),
+    url(r'^logout/', logout_views.logout, name='logoutapp'),
+    url(r'^auth/', include('social_django.urls', namespace='social')),
 ]
