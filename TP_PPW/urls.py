@@ -25,10 +25,7 @@ urlpatterns = [
     url(r'^program/', include(('ProgramApp.urls', 'ProgramApp'), namespace='donasi_kuy')),
     url(r'^news/', include(('BeritaApp.urls', 'BeritaApp'), namespace='news')),
     url(r'^registration/', include(('RegistrationApp.urls', 'RegistrationApp'), namespace='registration')),
-<<<<<<< HEAD
     url(r'^logout/', logout_views.logout, name='logoutapp'),
     url(r'^auth/', include('social_django.urls', namespace='social')),
-=======
     url(r'^about/', include(('AboutApp.urls', 'AboutApp'), namespace='about')),
->>>>>>> edward
 ]
