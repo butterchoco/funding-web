@@ -13,35 +13,68 @@
 
     {% include 'navbar.html' %}
 
-    {% if messages %}
-      {% for message in messages %}
-        {% if message.tags == "error" %}
-          <div class="alert alert-danger fixed-top" role="alert"> Email sudah pernah terdaftar ! </div>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-
+    
     <div class="yusuf-section-konten" style="height: 60rem; padding-top: 15rem;">
-      <div class="yusuf-max-width">
-        <div class="align-self-center">
+        <div class="yusuf-max-width">
+          <div class="align-self-center">
             <h1 class="text-center yusuf-bold">Registration</h1>
-        </div>
-        <div class="yusuf-container-form yusuf-container-konten">
-          <form method="POST">
-            {% csrf_token %}
-            {{ user_form }}
-            <div class="yusuf-container-konten text-center">
-              <button type="submit" class="btn btn-primary yusuf-isi-button border-0">
-                <span class="yusuf-bold">SUBMIT</span>
-              </button>
-            </div>
+          </div>
+          <div class="yusuf-container-form yusuf-container-konten">
+            <form method="POST">
+              <div id="alert"></div>
+              {% csrf_token %}
+              {{ user_form }}
+              <div class="yusuf-container-konten text-center">
+                <button type="submit" id="submit" class="btn btn-primary yusuf-isi-button border-0">
+                  <span class="yusuf-bold">SUBMIT</span>
+                </button>
+              </div>
           </form>
         </div>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+        $('#submit').prop("disabled", true);
+    
+        $("input").keyup(function () {
+            email = $('#id_email').val();
+            nama = $('#id_nama').val();
+            console.log(email)
+            $.ajax({
+                method: "POST",
+                url: '/validate/',
+                data: {
+                    'nama': nama,
+                    'email': email,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}',
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.is_taken) {
+                        $("#alert").html('<div class="alert alert-danger" role="alert">Email tersebut sudah pernah didaftarkan sebelumnya, silakan daftar dengan email lain !</div>')
+                        $('#submit').prop("disabled", true);
+                    } else {
+                        $(".alert.alert-danger").remove()
+                    }
+                    if (data.nama_is_taken) {
+                        $("#alert").html('<div class="alert alert-danger" role="alert">Nama tersebut sudah pernah didaftarkan sebelumnya, silakan daftar dengan nama lain !</div>')
+                        $('#submit').prop("disabled", true);
+                    } else {
+                        $(".alert.alert-danger").remove()
+                    }
+                    console.log(true)
+                    if (($('#id_nama').val() == '' || $('#id_email').val() == '' || $('#id_jumlah_uang').val() == '') || data.is_taken){
+                        $('#submit').prop("disabled", true);
+                    } else {
+                        $('#submit').removeAttr('disabled');
+                    }
+                }
+            });
+        });
+        </script>
 
     {% include 'footer.html' %}
   </body>

@@ -5,7 +5,16 @@ from .models import news_update
 
 def newsIndex(request):
     berita = news_update.objects.all()
-    return render(request, 'news_index.html', {'berita': berita})
+    if request.user.is_authenticated:
+        strNama = request.user.first_name + " " + request.user.last_name
+        strNama = strNama.strip()
+        request.session['name'] = strNama
+        request.session['email'] = request.user.email
+    if 'name' in request.session:
+        nama = request.session['name']
+    else:
+        nama = ''
+    return render(request, 'news_index.html', {'berita': berita, 'nama':nama})
 
 
 def newsDetails(request, id=None):
