@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'BeritaApp',
     'RegistrationApp',
     'LogoutApp',
+    'social_django',
     'AboutApp',
 ]
 
