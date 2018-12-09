@@ -40,12 +40,9 @@ INSTALLED_APPS = [
     'ProgramApp',
     'BeritaApp',
     'RegistrationApp',
-<<<<<<< HEAD
     'LogoutApp',
     'social_django',
-=======
     'AboutApp',
->>>>>>> edward
 ]
 
 MIDDLEWARE = [
