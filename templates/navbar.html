@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-md navbar-dark">
   <!-- Brand -->
   <div class="container-fluid yusuf-max-width">
-    <a class="navbar-brand" href="/">SINAR PERAK</a>
+    <a class="navbar-brand mr-auto" href="/">SINAR PERAK</a>
 
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -21,17 +21,32 @@
         <li class="nav-item">
           <a class="nav-link" href="/program/">Program</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/registration/">Registrasi</a>
-        </li>
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a href="/donationList/" class="nav-link">
+              DonasiKu
+            </a>
+          </li>
+          <li class="nav-item">
+            <p class="nav-link">Welcome, <span  style="color:white; font-weight: bold">{{ nama }}</span></p>  
+            
+          </li>
+        {% endif %}
         {% block content %}
           {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" onclick="location.href='{% url 'logoutapp' %}'">Logout</a>
+              <button type="button" class="btn btn-danger" onclick="location.href='{% url 'logoutapp' %}'">
+                  Logout
+              </button>
             </li>
           {% else %}
             <li class="nav-item">
-              <a class="nav-link" onclick="location.href='{% url 'social:begin' 'google-oauth2' %}'">Login</a>
+              <a class="nav-link" href="/registration/">Registrasi</a>
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link" href="/login/">
+                    Login
+                  </a>
             </li>
           {% endif %}
         {% endblock %}

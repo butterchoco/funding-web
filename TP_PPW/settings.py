@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^i)9op70iyt$=cs^6-&7u&^cif-*d&w^ujz&!u*joxp9ozt%r^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'tp1-ppw-404.herokuapp.com']
 
@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'LogoutApp',
     'social_django',
     'AboutApp',
+<<<<<<< HEAD
+=======
+    'donationListApp',
+>>>>>>> 1e765e37513aaf970778f56f0695a219020c977b
 ]
 
 MIDDLEWARE = [

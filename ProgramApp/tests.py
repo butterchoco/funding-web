@@ -30,10 +30,8 @@ class ProgramApp_testcase(TestCase):
         self.assertEqual(counting_all_available_program_registration, 1)
 
     def test_program_form_validation_for_blank_items(self):
-        form = program_registration_form(data={'nama': '', 'email': '', 'jumlah_uang': ''})
+        form = program_registration_form(data={'jumlah_uang': ''})
         self.assertFalse(form.is_valid())
-        self.assertEqual(form.errors['nama'], ["This field is required."])
-        self.assertEqual(form.errors['email'], ["This field is required."])
         self.assertEqual(form.errors['jumlah_uang'], ["This field is required."])
 
     # def test_program_registration_post_success(self):
