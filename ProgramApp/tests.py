@@ -24,11 +24,11 @@ class ProgramApp_testcase(TestCase):
     #     response = Client().get('/program/1/')
     #     self.assertEqual(response.status_code, 200)
 
-    def test_program_url_is_exist(self):
+    def test_validate_url_is_exist(self):
         response = Client().get('/validate/')
         self.assertEqual(response.status_code, 200)
 
-    def test_using_program_func(self):
+    def test_validate_program_func(self):
         found = resolve('/validate/')
         self.assertEqual(found.func, validate)
 
