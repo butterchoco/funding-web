@@ -50,27 +50,27 @@
 			<h2 class="text-center">Testimoni</h2>
 			
 			<section> <!-- here lies all the testimonials -->
-			{% if allTesti %}
-			{% for testi in allTesti %}
-			<div class="testimoni-content">
-				<h4 class="text-center" style="color:black">{{ testi.name }}</h4>
-				<div class="flex-content text-center">
-					<div>
-						<p>{{ testi.komenModel }}</p>
-					</div>
-				</div>
-			</div>
-			{% endfor %}
-			{% else %}
-			<div class="testimoni-content">
-				<h4 class="text-center" style="color:black">Nama</h4>
-				<div class="flex-content text-center">
-					<div>
-						<p>TEST</p>
-					</div>
-				</div>
-			</div>
-			{% endif %}
+			<!-- {% if allTesti %} -->
+			<!-- {% for testi in allTesti %} -->
+			<div class="testimoni-content" id="testiKonten">
+				<!-- <h4 class="text-center" style="color:black" id="testiName">{{ testi.name }}</h4> -->
+				<!-- <div class="flex-content text-center"> -->
+					<!-- <div> -->
+						<!-- <p id="testiKomen">{{ testi.komenModel }}</p> -->
+					<!-- </div> -->
+				<!-- </div> -->
+			<!-- </div> -->
+			<!-- {% endfor %} -->
+			<!-- {% else %} -->
+			<!-- <div class="testimoni-content"> -->
+				<!-- <h4 class="text-center" style="color:black">Nama</h4> -->
+				<!-- <div class="flex-content text-center"> -->
+					<!-- <div> -->
+						<!-- <p>TEST</p> -->
+					<!-- </div> -->
+				<!-- </div> -->
+			<!-- </div> -->
+			<!-- {% endif %} -->
 			</section>
 			
 			<section>
@@ -97,12 +97,16 @@
 						<!-- <textarea type="text" name="nama" maxlength="1000" class="form-control" rows="5" required placeholder="Sampaikan pengalaman anda..." id="id_testi"></textarea> -->
 						
 					<div class="yusuf-container-konten text-center">
-						<button type="submit" class="btn btn-primary yusuf-isi-button border-0">
+						<button type="button" class="btn btn-primary yusuf-isi-button border-0" id="submitButton">
 						<span class="yusuf-bold">Kirim</span>
 						</button>
 					</div>
 				</form>
 			</div>
+			</div>
+			
+			<div id="successAlert">
+				<h6 align="center" style="color:#BFC6D1"> Berhasil terkirim! </h6>
 			</div>
 			</section>
 		</div>

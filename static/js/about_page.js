@@ -33,7 +33,8 @@ $(document).ready(function(){
 	  }
 	}
 	});
-
+	
+	// to hide testimonials form if user is not authenticated yet
 	$("#showFormFlag").children().hide();
   
 	$("#ask-form").click(function(){
@@ -46,4 +47,45 @@ $(document).ready(function(){
 		$("#not-loggedIn-alert").slideDown();
 			// $("#id_nama").html("");
 	});
+	
+	
+	// to load the testimonies
+	$("#submitButton").click(function(){
+    $.ajax({
+      method : "POST",
+      data : $('form').serialize(),
+      success : function (datajson) {
+		$("#form-testimoni").slideUp();
+		
+        $("#successAlert").slideDown();
+        window.setTimeout(function() {
+            $("#successAlert").slideUp();
+        }, 3000);
+		
+		$("#ask-form").slideDown();
+		$("#id_nama").html("");
+		$("#testimoni").html("");
+      },
+    });
+  });
+
+  $.ajax({
+    url : "testi_json",
+    dataType : "json",
+    success : function (datajson) {
+      var dataSubs = datajson.testimonies;
+      for (var i = 0; i < dataSubs.length; i++) {
+        var info = dataSubs[i];
+        var nama = info.nama;
+        var testimoni = info.komentar;
+        var barisTesti = '<h4 class="text-center" style="color:black">' + nama + '</h4>' +
+				'<div class="flex-content text-center"> <div> <p id="testiKomen">'testimoni'</p> </div> </div></div>';
+        $('#testiKonten').append(barisTesti);
+      };
+    },
+	error: function (error) {
+      var baristabel = "<p class = \"text-center\">JSON gagal di-load :(</p>";
+      $('#testiKonten').append(baristabel);
+    },
+  });
 });

@@ -43,10 +43,7 @@ INSTALLED_APPS = [
     'LogoutApp',
     'social_django',
     'AboutApp',
-<<<<<<< HEAD
-=======
     'donationListApp',
->>>>>>> 1e765e37513aaf970778f56f0695a219020c977b
 ]
 
 MIDDLEWARE = [

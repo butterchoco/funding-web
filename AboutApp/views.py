@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, render_to_response, redirect
+from django.http import HttpResponseRedirect, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from .forms import testi_form
 from .models import testi_Model
 
@@ -19,7 +20,7 @@ def aboutIndex(request):
             komentar = request.POST['komentar']
             testi = testi_Model(name = name, komenModel = komentar)
             testi.save()
-            return HttpResponseRedirect('/about/')
+            return redirect('/testi_json')
     form = testi_form()
     if 'name' in request.session:
         form = testi_form(initial={'name':request.session['name']})
@@ -27,3 +28,8 @@ def aboutIndex(request):
     else:
         nama = ''
     return render(request, 'about.html', {'form':form, 'allTesti':allTesti, 'nama':nama})
+
+def testi_json(request):
+    testiDict = [obj.as_dict() for obj in testi_Model.objects.all()]
+    return JsonResponse({"testimonies": testiDict}, content_type='application/json')
+
