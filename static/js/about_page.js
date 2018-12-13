@@ -46,4 +46,20 @@ $(document).ready(function(){
 		$("#not-loggedIn-alert").slideDown();
 			// $("#id_nama").html("");
 	});
+
+  $("#testimoni_submit").click( function() {
+    var komentar = $("#id_komentar").val();
+    $.ajax({
+      method: "POST",
+      url: "/about/tambah_komentar",
+      data: {
+        "komentar": komentar,
+      },
+      success: function(data) {
+        console.log("success");
+        location.reload()
+      }
+    })
+    event.preventDefault();
+  })
 });

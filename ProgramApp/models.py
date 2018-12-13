@@ -12,6 +12,6 @@ class program_registration(models.Model):
 
 
 class program_update(models.Model):
-    judul = models.CharField(max_length=50)
-    konten = models.TextField(max_length=500)
+    judul = models.CharField(max_length=200)
+    konten = models.TextField(max_length=1000)
     image = models.CharField(max_length=200)
