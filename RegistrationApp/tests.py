@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.test import Client
 from django.urls import resolve
-from .views import registrationIndex
+from .views import registrationIndex, loginIndex
 from .models import user_registration
 from .forms import user_registration_form
 
@@ -14,9 +14,13 @@ class RegistrationApp_testcase(TestCase):
         response = Client().get('/registration/')
         self.assertEqual(response.status_code, 200)
 
-    def test_using_registration_func(self):
-        found = resolve('/registration/')
-        self.assertEqual(found.func, registrationIndex)
+    def test_Registration_login_url_is_exist(self):
+        response = Client().get('/login/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_using_login_func(self):
+        found = resolve('/login/')
+        self.assertEqual(found.func, loginIndex)
 
     def test_model_can_create_new_user_registration(self):
         user_registration.objects.create(nama='Anonymous', tanggal_lahir='1999-02-02', email='anonymous@gmail.com', password='12wdwa214')

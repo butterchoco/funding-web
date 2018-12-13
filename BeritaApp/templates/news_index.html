@@ -1,5 +1,7 @@
-<!DOCTYPE html>
 {% load static %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -25,7 +27,7 @@
 	            {% for i in berita %}
 	              <div class="card width shadow-box" style="margin-top: 2rem;">
 	                  <div style="background-color: #4195A0; border-radius: 4px 4px 0 0; height: 100%;" align="center">
-	                    <h5 class="card-title" style="padding-top: .75rem;">{{ i.judul }}</h5>
+	                    <h5 class="card-title" style="padding-top: .75rem; color: white;">{{ i.judul }}</h5>
 	                  </div>
 	                  <img class="card-img-top" src="{{ i.image }}" alt="Card image cap">
 	                  <div class="card-body">

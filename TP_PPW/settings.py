@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
+from AboutApp.apps import AboutappConfig
+from BeritaApp.apps import BeritaappConfig
+from donationListApp.apps import DonationlistappConfig
+from ProgramApp.apps import ProgramAppConfig
+from RegistrationApp.apps import RegistrationappConfig
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^i)9op70iyt$=cs^6-&7u&^cif-*d&w^ujz&!u*joxp9ozt%r^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'tp1-ppw-404.herokuapp.com']
 
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'ProgramApp',
     'BeritaApp',
     'RegistrationApp',
