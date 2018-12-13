@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.test import Client
 from django.urls import resolve
-from .views import programIndex
+from django.contrib.auth import authenticate, login
+from .views import programIndex, programUpdate, validate
 from .models import program_registration, program_update
 from .forms import program_registration_form
 # from django.http import HttpRequest
@@ -19,6 +20,18 @@ class ProgramApp_testcase(TestCase):
         found = resolve('/program/')
         self.assertEqual(found.func, programIndex)
 
+    # def test_program_detail_url_is_exist(self):
+    #     response = Client().get('/program/1/')
+    #     self.assertEqual(response.status_code, 200)
+
+    def test_program_url_is_exist(self):
+        response = Client().get('/validate/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_using_program_func(self):
+        found = resolve('/validate/')
+        self.assertEqual(found.func, validate)
+
     def test_model_can_create_new_program_registration(self):
         program_registration.objects.create(nama='Anonymous', email='anonymous@gmail.com', jumlah_uang='12000', tampilkan=True)
         counting_all_available_program_registration = program_registration.objects.all().count()
@@ -34,11 +47,11 @@ class ProgramApp_testcase(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['jumlah_uang'], ["This field is required."])
 
-    # def test_program_registration_post_success(self):
-    #     test = 'Anonymous'
-    #     program = program_update(judul="test", konten="tessst", image="etestet")
-    #     response_post = Client().post('/program/', {'program': program, 'nama': test, 'email': test + '@gmail.com', 'jumlah_uang': '12000', 'tampilkan': True})
-    #     self.assertEqual(response_post.status_code, 302)
+    def test_program_registration_post_success(self):
+        test = 'Anonymous'
+        program = program_update.objects.create(judul="test", konten="tessst", image="etestet")
+        response_post = Client().post('/program/', {'program': program, 'jumlah_uang': '12000', 'tampilkan': True})
+        self.assertEqual(response_post.status_code, 200)
 
     def test_program_registration_post(self):
             test = 'anonymous' * 400
